@@ -1,0 +1,14 @@
+services:
+  rstudio:
+    image: rocker/rstudio@sha256:ed9402811f9c0c1237af6a0d19c158c023f1207d2de0debcb996b8934403dcc9
+    container_name: rstudio
+    ports:
+      - "8787:8787"
+    environment:
+      - PASSWORD=rstudio
+    volumes:
+      - ./scripts:/home/rstudio/workspace
+      - r_libs:/usr/local/lib/R/site-library
+
+volumes:
+  r_libs: {}
